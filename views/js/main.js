@@ -494,10 +494,8 @@ function updatePositions() {
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   var items = document.querySelectorAll('.mover');
   var numberOfItems = items.length;
-  console.log('items length is: ', items.length);
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    console.log('phase value just calculated to...', phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
