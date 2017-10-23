@@ -38,7 +38,7 @@ module.exports = function(grunt) {
           banner: '/*! bootstrap-grid.css min */'
         },
         files: {
-         'views/css/bootstrap-grid.min.css': ['views/css/bootstrap-grid.css']
+         'css/style.min.css': ['css/*.css']
         }
       }
       }
