@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     imagemin: {
       dist: {
       options: {
-        optimizationLevel: 3
+        optimizationLevel: 2
       },
       files: [{
          expand: true,
@@ -32,16 +32,16 @@ module.exports = function(grunt) {
       }]
       }
       },
-      cssmin: {
-        dist: {
-        options: {
-          banner: '/*! bootstrap-grid.css min */'
-        },
-        files: {
-         'css/style.min.css': ['css/*.css']
-        }
-      }
-      }
+//      cssmin: {
+//        dist: {
+//        options: {
+//          banner: '/*! Main style.css min */'
+//        },
+//        files: {
+//         'css/style.min.css': ['css/*.css']
+//        }
+//      }
+//      }
 
     //responsive_images: {
       //dev: {
@@ -95,8 +95,8 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['uglify', 'imagemin', 'cssmin']);
+  //grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['uglify', 'imagemin']);
   //grunt.loadNpmTasks('grunt-contrib-clean');
   //grunt.loadNpmTasks('grunt-contrib-copy');
   //grunt.loadNpmTasks('grunt-mkdir');

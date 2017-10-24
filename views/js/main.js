@@ -520,6 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/dest/pizza.png";
+    elem.style.transform = "translateZ(0)";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
