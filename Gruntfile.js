@@ -19,19 +19,32 @@ module.exports = function(grunt) {
 		       dest : "views/js/main.min.js"
 	     }
     },
-    imagemin: {
+    htmlmin: {
       dist: {
       options: {
-        optimizationLevel: 2
-      },
-      files: [{
-         expand: true,
-         cwd: 'views/images',
-         src: ['*.{png,jpg,gif}'],
-         dest: 'views/images/dest/'
-      }]
-      }
-      },
+      removeComments: true,
+      collapseWhitespace: true
+    },
+      files: {
+      'index.html': 'index_nonmin.html',
+      'views/pizza.html': 'views/pizza_nonmin.html'
+    }
+  }
+}
+
+//    imagemin: {
+//      dist: {
+//      options: {
+//        optimizationLevel: 2
+//      },
+//      files: [{
+//         expand: true,
+//         cwd: 'views/images',
+//         src: ['*.{png,jpg,gif}'],
+//         dest: 'views/images/dest/'
+//      }]
+//      }
+//      },
 //      cssmin: {
 //        dist: {
 //        options: {
@@ -93,10 +106,11 @@ module.exports = function(grunt) {
   });
 
   //grunt.loadNpmTasks('grunt-responsive-images');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  //grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   //grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['uglify', 'imagemin']);
+  grunt.registerTask('default', ['uglify', 'htmlmin']);
   //grunt.loadNpmTasks('grunt-contrib-clean');
   //grunt.loadNpmTasks('grunt-contrib-copy');
   //grunt.loadNpmTasks('grunt-mkdir');

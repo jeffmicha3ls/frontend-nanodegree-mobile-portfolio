@@ -492,11 +492,13 @@ function updatePositions() {
 
   // document.body.scrollTop is no longer supported in Chrome.
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  var items = document.querySelectorAll('.mover');
+  //var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var numberOfItems = items.length;
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.transform = 'translate3D('+ (items[i].basicLeft + 100 * phase) + 'px, 0px, 0px)';
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -516,11 +518,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0, elem; i < 55; i++) {
+  for (var i = 0, elem; i < 24; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/dest/pizza.png";
-    elem.style.transform = "translateZ(0)";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
