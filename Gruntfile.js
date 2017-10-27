@@ -9,16 +9,16 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    uglify : {
+//    uglify : {
 
-	     options : {
-		       banner : "/*! main.min.js file */\n"
-	     },
-	     build : {
-		       src : ["views/js/main.js"],
-		       dest : "views/js/main.min.js"
-	     }
-    },
+//	     options : {
+//		       banner : "/*! analytics.js file */\n"
+//	     },
+//	     build : {
+//		       src : ["js/analytics.js"],
+//		       dest : "js/analytics.min.js"
+//	     }
+//    },
     htmlmin: {
       dist: {
       options: {
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       'views/pizza.html': 'views/pizza_nonmin.html'
     }
   }
-}
+},
 
 //    imagemin: {
 //      dist: {
@@ -45,16 +45,16 @@ module.exports = function(grunt) {
 //      }]
 //      }
 //      },
-//      cssmin: {
-//        dist: {
-//        options: {
-//          banner: '/*! Main style.css min */'
-//        },
-//        files: {
-//         'css/style.min.css': ['css/*.css']
-//        }
-//      }
-//      }
+      cssmin: {
+        minify: {
+          expand: true,
+          cwd: 'views/css/',
+          src: ['*.css', '!*.min.css'],
+          dest: 'views/css/',
+          ext: '.min.css'
+        }
+      }
+
 
     //responsive_images: {
       //dev: {
@@ -108,9 +108,9 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-responsive-images');
   //grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  //grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['uglify', 'htmlmin']);
+  //grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['cssmin', 'htmlmin']);
   //grunt.loadNpmTasks('grunt-contrib-clean');
   //grunt.loadNpmTasks('grunt-contrib-copy');
   //grunt.loadNpmTasks('grunt-mkdir');
