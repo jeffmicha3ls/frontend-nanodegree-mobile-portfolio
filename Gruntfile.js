@@ -26,8 +26,8 @@ module.exports = function(grunt) {
       collapseWhitespace: true
     },
       files: {
-      'index.html': 'index_nonmin.html',
-      'views/pizza.html': 'views/pizza_nonmin.html'
+      'index.html': 'index_nonmin.html'
+//      'views/pizza.html': 'views/pizza_nonmin.html'
     }
   }
 },
@@ -48,9 +48,9 @@ module.exports = function(grunt) {
       cssmin: {
         minify: {
           expand: true,
-          cwd: 'views/css/',
+          cwd: 'css/',
           src: ['*.css', '!*.min.css'],
-          dest: 'views/css/',
+          dest: 'css/',
           ext: '.min.css'
         }
       }
