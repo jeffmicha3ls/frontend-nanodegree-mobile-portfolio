@@ -45,15 +45,15 @@ module.exports = function(grunt) {
 //      }]
 //      }
 //      },
-      cssmin: {
-        minify: {
-          expand: true,
-          cwd: 'css/',
-          src: ['style.css', '!*.min.css'],
-          dest: 'css/',
-          ext: 'style.min.css'
-        }
-      }
+//      cssmin: {
+//        minify: {
+//          expand: true,
+//          cwd: 'css/',
+//          src: ['style.css', '!*.min.css'],
+//          dest: 'css/',
+//          ext: 'style.min.css'
+//        }
+//      }
 
 
     //responsive_images: {
@@ -109,9 +109,8 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   //grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['htmlmin', 'cssmin']);
-  //grunt.loadNpmTasks('grunt-contrib-clean');
+  //grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['htmlmin']);
   //grunt.loadNpmTasks('grunt-contrib-copy');
   //grunt.loadNpmTasks('grunt-mkdir');
   //grunt.registerTask('default', ['clean', 'uglify', 'mkdir', 'copy', 'responsive_images']);
