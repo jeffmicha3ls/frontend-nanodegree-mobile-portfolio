@@ -38,4 +38,4 @@ The following issues were discovered on the original website and fixed in this v
 
 ### Contributions
 
-A big _Thank you_ to Udacity for the Javascript training and for providing the majority of the code for this project.
+A big _Thank You_ to Udacity for the Javascript training and for providing the majority of the code for this project.
