@@ -1,104 +1,49 @@
-/*
- After you have changed any settings for the responsive_images task,
- run this with one of these options:
-  "grunt" alone creates a new, completed images directory
-  "grunt clean" removes the images directory
-  "grunt responsive_images" re-processes images without removing the old ones
-*/
-
 module.exports = function(grunt) {
 
   grunt.initConfig({
     uglify : {
-
 	     options : {
 		       banner : "/*! javascript file */\n"
 	     },
 	     build : {
-		       src : ["js/analytics.js"],
-		       dest : "js/analytics.min.js"
+		       src : ["views/js/main.js"],
+		       dest : "views/js/main.min.js"
 	     }
     },
+
     htmlmin: {
       dist: {
       options: {
-      removeComments: true,
-      collapseWhitespace: true
-    },
+        removeComments: true,
+        collapseWhitespace: true
+      },
       files: {
       'index.html': 'index_nonmin.html'
-//      'views/pizza.html': 'views/pizza_nonmin.html'
+      //'views/pizza.html': 'views/pizza_nonmin.html'
+      }
+      }
+    },
+
+    cssmin: {
+      dist:{
+        files: {
+          'css/style.min.css':'css/style.css',
+          'css/footer.min.css':'css/footer.css',
+          'views/css/style.min.css':'views/css/style.css'
+        }
+      }
     }
-  }
-},
-
-//      cssmin: {
-//        minify: {
-//          expand: true,
-//          cwd: 'css/',
-//          src: ['style.css', '!*.min.css'],
-//          dest: 'css/',
-//          ext: 'style.min.css'
-//        }
-//      }
-
-    //responsive_images: {
-      //dev: {
-        //options: {
-          //engine: 'im',
-          //sizes: [{
-            //width: 1600,
-            //suffix: '_large_2x',
-            //quality: 30
-          //}]
-        //},
-        //files: [{
-          //expand: true,
-          //src: ['*.{gif,jpg,png}'],
-          //cwd: 'images_src/',
-          //dest: 'images/'
-        //}]
-      //}
-    //},
-
-    /* Clear out the images directory if it exists */
-    //clean: {
-      //dev: {
-        //src: ['images'],
-      //},
-    //},
-
-    /* Generate the images directory if it is missing */
-    //mkdir: {
-      //dev: {
-        //options: {
-          //create: ['images']
-        //},
-      //},
-    //},
-
-    /* Copy the "fixed" images that don't go through processing into the images/directory */
-    //copy: {
-      //dev: {
-        //files: [{
-          //expand: true,
-          //src: ['images_src/fixed/*.{gif,jpg,png}'],
-          //dest: 'images/',
-          //flatten: true,
-        //}]
-      //},
-    //},
 
   });
 
   //grunt.loadNpmTasks('grunt-responsive-images');
   //grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  //grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['htmlmin', 'uglify']);
   //grunt.loadNpmTasks('grunt-contrib-copy');
   //grunt.loadNpmTasks('grunt-mkdir');
-  //grunt.registerTask('default', ['clean', 'uglify', 'mkdir', 'copy', 'responsive_images']);
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify']);
 
 };

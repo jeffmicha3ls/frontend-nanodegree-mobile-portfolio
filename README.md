@@ -33,17 +33,24 @@ The following issues were discovered on the original website and fixed in this v
     to 2 separate files and inlined the call to the file name at the bottom of the index.html file.
 3.  The index.html file and all files within the js and css directories were minified using Grunt.  In addition,
     these files were compressed using gzip.
+4.  Instead of calling the whole style.css file at the beginning of index.html, I moved the footer references
+    to footer.css and called the file at the end of the body.  In addition, I inlined the remaining
+    minified css in the style tag of **<head>**.
 
 #### Part 2: Optimized FPS in pizza.html by modifying views/js/main.js with fixes below:
 
 1.  Replaced all querySelector with getElementById.
 2.  Replaced both querySelectorAll with getElementsByClassName.
-3.  Moved document.documentElement.scrollTop outside the for loop.
+3.  Moved document.documentElement.scrollTop outside the _for_ loop.
 4.  Added variable numberOfItems = items.length within updatePositions function
     so items length doesn't need to be queried each iteration.
 5.  Assigned the elem variable during DOMContentLoaded loop initialization instead of each iteration.
 6.  Changed the number of iterations thru the DOMContentLoaded loop from unnecessary value of 200 to 55.
-7.  Updated changePizzaSizes function to prevent FSL due to DOM call inside for loop.
+7.  Updated changePizzaSizes function to prevent FSL due to DOM call inside _for_ loop.
+8.  The .mover class was modified to use the 3D parameter, translateZ, to offload the
+    updatePositions function to the GPU.
+9.  Added variable movingPizzas = document.getElementById('movingPizzas1') within DOM load function
+    to replace the repeated call within the _for_ loop.
 
 ### Contributions
 

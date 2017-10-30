@@ -1,0 +1,6 @@
+footer { max-width: 45em; margin: 0 auto; }
+footer {
+  padding: 0 0.5em;
+  border-top: 1px solid #ccc;
+}
+footer span { float: right; font-style: italic; }
